@@ -9,3 +9,9 @@ Install dependencies with 'yarn install'.
 
 Uses Google Maps API and Unsplash API to show Austin dog parks on the map and add an Unsplash photo.
 This was a tough Udacity FEND project.
+
+## Credits
+
+Thanks to Ari Lerner and his google-maps-react.
+Thanks to the Google Maps API Dev Team.
+Thanks to the Unsplash Dev Team.
