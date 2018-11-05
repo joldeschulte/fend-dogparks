@@ -177,9 +177,9 @@ class SearchableMap extends Component {
           </ul>
         </div>
         <div className={this.state.fakeWindowClass}>
-        <h1>{this.state.venues[0].name}</h1>
-        <div className="small-park-pic"><img src={this.state.dogPic} alt={this.state.venues[0].name+" photo"}/></div>
-        <h3>{this.state.venues[0].location.address}</h3>
+        <h1>{(this.state.venues.length > 0) ? this.state.venues[0].name : null}</h1>
+        <div className="small-park-pic"><img src={this.state.dogPic} alt={(this.state.venues.length > 0) ? this.state.venues[0].name+" photo" : null}/></div>
+        <h3>{(this.state.venues.length > 0) ? this.state.venues[0].location.address : null}</h3>
         <p>{this.state.message}</p>
         </div>
         <MapContainer
