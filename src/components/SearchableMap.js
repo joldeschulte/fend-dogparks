@@ -170,6 +170,7 @@ class SearchableMap extends Component {
                 onKeyPress={() => this.parkClick(v.name, v.location.address)}
                 id={v.name}
                 tabIndex={"0"}
+                role="button"
                 aria-describedby={"Select " + v.name}
               >{v.name}</li>
               )
