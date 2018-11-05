@@ -32,10 +32,10 @@ export class MapContainer extends Component {
 
   onMapReady = (mapProps, map) => {
     this.map = map;
-    //console.log(this.map);
+    // console.log(this.map);
     map.fitBounds(this.myBounds());
     this.setState({readyMap: true});
-    console.log('ready')
+    // console.log('ready')
   };
 
   alertError = () => {
