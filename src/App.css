@@ -1,6 +1,7 @@
 h1 {
   font-family: 'Rock Salt', sans-serif;
   max-width: 300px;
+  text-align: center;
 }
 
 ul {
@@ -95,6 +96,8 @@ input{
   width: 300px;
   overflow: hidden;
   max-width: 50vw !important;
+  display: block;
+  margin: auto;
 }
 .park-pic img {
   width: 100%;
@@ -118,7 +121,39 @@ input{
   transform: translateY(60px);
 }
 
+.hide {
+  display: none !important;
+}
+
 .bottom {
-  font-size: 1.1rem;
-  font-family: Roboto;
+  position: absolute;
+  top: 0px;
+  width: 300px;
+  right: calc(50vw - 150px);
+  height: 300px;
+  display: block;
+  margin: auto;
+  text-align: center;
+  background: rgba(0,0,0,.5);
+  color: #fff;
+  z-index: 10;
+  transform: translateY(calc(100vh - 300px));
+  transition: transform 200ms linear;
+}
+
+.small-park-pic {
+  width: 180px;
+  overflow: hidden;
+  max-width: 35vw !important;
+  display: block;
+  margin: auto;
+}
+
+.small-park-pic img {
+  width: 100%;
+  border-radius: 5% 30% 5% 20%;
+}
+
+.bottom h1 {
+  font-size: 1.2rem;
 }
