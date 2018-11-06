@@ -3,6 +3,8 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import {mapStyles} from '../consts/mapStyles';
 import markerIcon from '../images/wht-blank.png';
 
+const API_KEY = 'AIzaSyANFdpzxzykaDfaxvT51sHi-rn23A8WWPc'
+
 export class MapContainer extends Component {
   constructor(props) {
     super(props);
@@ -17,8 +19,20 @@ export class MapContainer extends Component {
     };
   }
 
-  componentDidMount() {
-    //console.log(this.props.google.maps)
+  componentWillUpdate() {
+    //console.log(window)
+  }
+  componentWillMount() {
+    window.gm_authFailure = this.gm_authFailure;
+    // Why is this always undefined?
+    console.log(window.gm_authFailure)
+    //console.log(this.props.google.gm_authFailure)
+    if (window.gm_authFailure !== undefined) {
+      this.alertError();
+    }
+    if (API_KEY !== 'AIzaSyANFdpzxzykaDfaxvT51sHi-rn23A8WWPc') {
+      this.alertError();
+    }
   }
 
   myBounds = () => {
@@ -32,9 +46,10 @@ export class MapContainer extends Component {
 
   onMapReady = (mapProps, map) => {
     this.map = map;
-    // console.log(this.map);
+    //console.log(this.map);
     map.fitBounds(this.myBounds());
     this.setState({readyMap: true});
+    //window.gm_authFailure = this.gm_authFailure;
     // console.log('ready')
   };
 
@@ -62,7 +77,9 @@ export class MapContainer extends Component {
           streetViewControl={false}
           mapTypeControl={false}
           bounds={bounds}
-          onReady={this.onMapReady}>
+          onReady={this.onMapReady}
+          onerror={this.alertError}
+          gm_authFailure={this.gm_authFailure}>
           {this.props.venues.map( v => {
             let animate = this.props.google.maps.Animation.NONE
             if (v.name === this.props.selectedPlace.name || this.props.venues.length === 1) {
@@ -102,5 +119,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: ('AIzaSyANFdpzxzykaDfaxvT51sHi-rn23A8WWPc')
+  apiKey: (API_KEY)
 })(MapContainer)
