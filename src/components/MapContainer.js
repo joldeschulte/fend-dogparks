@@ -77,7 +77,7 @@ export class MapContainer extends Component {
           streetViewControl={false}
           mapTypeControl={false}
           bounds={bounds}
-          onReady={() => this.onMapReady}>
+          onReady={this.onMapReady}>
           {this.props.venues.map( v => {
             let animate = this.props.google.maps.Animation.NONE
             if (v.name === this.props.selectedPlace.name || this.props.venues.length === 1) {
