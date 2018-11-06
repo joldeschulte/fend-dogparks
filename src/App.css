@@ -3,6 +3,10 @@ h1 {
   max-width: 300px;
   text-align: center;
 }
+aside {
+  font-family: 'Rock Salt', sans-serif;
+  max-width: 300px;
+}
 
 ul {
   list-style: none;
